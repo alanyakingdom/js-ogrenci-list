@@ -149,7 +149,43 @@ const ogrenciler=[
                 sinif: "AMP-11/A",
                 alan: "Bilişim Teknolojileri Alanı",
                 dal: "Yazılım Geliştirme Dalı",
+                avatarNormal: "https://api.dicebear.com/7.x/avataaars/svg?seed=amele&translateY=50",
+                avatarHover: "https://api.dicebear.com/7.x/avataaars/svg?seed=amele&translateY=0"
+            },
+            {
+                adSoyad: "Yağız Efe Çakaloğlu",
+                no: "111",
+                sinif: "AMP-11/A",
+                alan: "Bilişim Teknolojileri Alanı",
+                dal: "Ağ İşletim Sistemi Dalı",
                 avatarNormal: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kimberly&translateY=50",
                 avatarHover: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kimberly&translateY=0"
-            }
+            },
+            {
+                adSoyad: "Ahmet İbrahim Efe Sarısoy",
+                no: "111",
+                sinif: "AMP-11/A",
+                alan: "Bilişim Teknolojileri Alanı",
+                dal: "Ağ İşletim Sistemi Dalı",
+                avatarNormal: "https://api.dicebear.com/7.x/avataaars/svg?seed=amad&translateY=50",
+                avatarHover: "https://api.dicebear.com/7.x/avataaars/svg?seed=amad&translateY=0"
+            },
+            {
+                adSoyad: "Şafak Ege Koçak",
+                no: "111",
+                sinif: "AMP-11/A",
+                alan: "Bilişim Teknolojileri Alanı",
+                dal: "Ağ İşletim Sistemi Dalı",
+                avatarNormal: "https://api.dicebear.com/7.x/avataaars/svg?seed=şafak&translateY=50",
+                avatarHover: "https://api.dicebear.com/7.x/avataaars/svg?seed=şafak&translateY=0"
+            },
+            {
+                adSoyad: "Tuğra Erdoğan",
+                no: "673",
+                sinif: "AMP-11/A",
+                alan: "Bilişim Teknolojileri Alanı",
+                dal: "Yazılım Geliştirme Dalı",
+                avatarNormal: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kimberly&translateY=50",
+                avatarHover: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kimberly&translateY=0"
+            },
         ];

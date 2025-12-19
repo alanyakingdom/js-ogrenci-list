@@ -3,6 +3,7 @@ const tum_sayfa=document.querySelector("#mainHtml");
 const ogrenci_gridi=document.querySelector("#studentGrid");
 const ogr_sayisi= document.querySelector("#studentCount");
 const ogr_filtrele= document.querySelector("#searchInput");
+const ogr_getir= document.querySelector("#ogrenciGetir");
 
 btn_temaDegistirici.addEventListener("click",()=>tum_sayfa.classList.toggle("dark"));
 console.log("ogrenciler");
@@ -10,10 +11,11 @@ console.log("ogrenciler");
 function ogrencileri_goster(ogr_liste){
     ogr_sayisi.innerText=`${ogr_liste.length} KAYIT`;
     ogrenci_gridi.innerHTML="";
-    ogr_liste.forEach(ogr => {
+    ogr_liste.forEach((ogr,index) => {
         console.log(ogr.adSoyad);
 
         let ogrenci_card= `
+                        <button onclick="silOgrenci('${index}')" class="absolute right-4 top-4 text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all z-30">X</button>
                         <div class="relative shadow-xl w-32 h-32 mb-5 bg-gray-50 dark:bg-gray-900 rounded-full overflow-hidden border-2 border-transparent group-hover:border-blue-500 transition-colors mx-auto">
                             <img src="${ogr.avatarNormal}" 
                                 class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-20 group-hover:opacity-0 group-hover:-translate-y-8" alt="normal">
@@ -41,7 +43,6 @@ function ogrencileri_goster(ogr_liste){
     });
 }
 
-
 ogr_filtrele.addEventListener("input",(e)=>{
     const girilen=e.target.value.toLowerCase();
     const suzulenListe=ogrenciler.filter(ogr=>ogr.adSoyad.toLowerCase().includes(girilen));
@@ -49,3 +50,25 @@ ogr_filtrele.addEventListener("input",(e)=>{
     ogrencileri_goster(suzulenListe);
 });
 ogrencileri_goster(ogrenciler);
+
+silOgrenci=(index)=>{
+    ogrenciler.splice(index,1);
+    ogrencileri_goster(ogrenciler);
+};
+ogr_getir.addEventListener("click",()=>{veriCek();});
+async function veriCek(){
+    const response= await fetch("https://randomuser.me/api/");
+    const data= await response.json();
+    const yeniOgrenci=data.results[0];
+    const yeniOgrenciBilgi= {
+                adSoyad: `${yeniOgrenci.name.first} ${yeniOgrenci.name.last}`,
+                no: Math.floor(1000 + Math.random() * 9000).toString(),
+                sinif: "AMP-11/A",
+                alan: "Bilişim Teknolojileri Alanı",
+                dal: "Yazılım Geliştirme Dalı",
+                avatarNormal: `https://api.dicebear.com/7.x/avataaars/svg?seed=${yeniOgrenci.login.uuid}&translateY=50`,
+                avatarHover: `https://api.dicebear.com/7.x/avataaars/svg?seed=${yeniOgrenci.login.uuid}&translateY=0`
+            }
+    ogrenciler.push(yeniOgrenciBilgi);
+    ogrencileri_goster(ogrenciler);
+}
