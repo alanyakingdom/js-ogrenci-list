@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr" id="mainHtml" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Sınıf Paneli - Gelişmiş Versiyon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 font-sans">
+    <header class="p-6 border-b dark:border-gray-800 flex justify-between items-center max-w-6xl mx-auto">
+        <div>
+            <h1 class="text-xl font-mono font-bold tracking-tighter">AMP11A_sinifi_<span class="text-blue-600">v2.5</span></h1>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest leading-none mt-1">Sınıf Yönetim Paneli</p>
+        </div>
+        
+        <button id="themeToggle" class="p-2 rounded-xl bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 hover:scale-105 transition-all">
+            <span class="dark:hidden font-bold">
+                <img src="images/moon.svg" alt="Ay" class="inline w-4 h-4 mr-2 align-text-bottom dark:invert" decoding="async">
+               Gece
+            </span>
+            <span class="hidden dark:inline font-bold">
+                <img src="images/sun.svg" alt="Gündüz" class="inline w-4 h-4 mr-2 align-text-bottom" decoding="async">
+                Gündüz
+            </span>
+        </button>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+        
+        <div class="mb-8 space-y-4 sm:space-y-0 sm:flex sm:justify-between sm:items-center">
+            <div>
+                <h2 class="text-2xl font-black italic">Öğrenciler</h2>
+                <span id="studentCount" class="text-[10px] font-bold bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-tighter">0 Kayıt</span>
+            </div>
+
+            <div class="relative w-full sm:w-72">
+                <input type="text" id="searchInput" placeholder="İsim veya dal ara..." 
+                       class="w-full p-3 pl-10 rounded-2xl bg-gray-50 dark:bg-gray-800 border dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                <span class="absolute left-3 top-3.5 opacity-40">
+                    <img src="images/search.svg" alt="Ara" class="w-4 h-4" decoding="async">
+                </span>
+            </div>
+        </div>
+
+        <div id="studentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div class="group shadow-md bg-white dark:bg-gray-800 border dark:border-gray-700 p-5 rounded-[2rem] hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+
+                    <div class="relative shadow-xl w-32 h-32 mb-5 bg-gray-50 dark:bg-gray-900 rounded-full overflow-hidden border-2 border-transparent group-hover:border-blue-500 transition-colors mx-auto">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ayse&translateY=50" 
+                             class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-20 group-hover:opacity-0 group-hover:-translate-y-8" alt="normal">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ayse&translateY=0" 
+                             class="absolute inset-0 w-full h-full object-cover transition-all duration-500 z-10 opacity-0 scale-95 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0" alt="hover">
+                    </div>
+
+                    <div class="space-y-0.5 text-left w-full">
+                        <h3 class="font-black text-xl leading-tight group-hover:text-blue-600 transition-colors capitalize">
+                            Ozge Halil DUMAN
+                        </h3>
+                        <p class="text-sm font-bold text-blue-500 font-mono tracking-tighter">Okul No: 1234</p>
+                        <p class="text-xs font-semibold text-gray-400">AMP-15A</p>
+                        
+                        <div class="mt-3 pt-3 border-t dark:border-gray-700">
+                            <p class="text-[13px] text-gray-600 dark:text-gray-300 leading-tight">Bilişim Teknolojileri</p>
+                            <p class="text-[13px] font-bold text-slate-800 dark:text-slate-200 leading-tight italic">Yazılım Geliştirme</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <!--div id="noResult" class="hidden text-center py-20">
+            <p class="text-gray-400 font-mono italic">Aranan kriterde öğrenci bulunamadı.</p>
+        </div-->
+
+    </main>
+    <script src="app.js"></script>
+    <script src="veri.js"></script>
+</body>
+</html>
